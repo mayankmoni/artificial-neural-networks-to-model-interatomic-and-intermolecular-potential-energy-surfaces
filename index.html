@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fortran research code associated with a simulated-annealing-based artificial neural network method for potential energy surfaces.">
+  <title>ANN Potential Energy Surfaces | Research Code</title>
+  <style>
+    :root { color-scheme: light; --ink:#17233b; --muted:#53627b; --line:#dfe6ef; --blue:#2855d9; --teal:#138b83; --paper:#fff; --wash:#f3f7fc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:var(--wash); }
+    a { color:var(--blue); text-underline-offset:3px; }
+    .hero { background:radial-gradient(ellipse at 82% 16%,#244785 0,transparent 40%),linear-gradient(130deg,#101c35,#182a4b 62%,#193a57); color:white; padding:72px 22px 64px; }
+    .wrap { width:min(1080px,100% - 40px); margin:auto; }
+    .eyebrow { color:#a9c4ff; font-size:.8rem; font-weight:750; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { max-width:800px; margin:12px 0 14px; font-size:clamp(2.2rem,5vw,4rem); line-height:1.09; letter-spacing:-.035em; }
+    .hero p { max-width:720px; color:#d5e0f3; font-size:1.12rem; margin:0; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .button { display:inline-block; padding:11px 17px; border-radius:8px; background:#fff; color:#17233b; font-weight:700; text-decoration:none; }
+    .button.alt { color:#fff; background:transparent; border:1px solid #8197bb; }
+    main { padding:32px 0 58px; }
+    .grid { display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px; box-shadow:0 5px 18px #13284a08; }
+    .wide { grid-column:span 8; } .side { grid-column:span 4; } .half { grid-column:span 6; }
+    h2 { margin:0 0 12px; font-size:1.28rem; letter-spacing:-.015em; }
+    p { margin:0 0 12px; color:var(--muted); } p:last-child { margin-bottom:0; }
+    .network { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:20px 0 14px; }
+    .layer { flex:1; text-align:center; padding:18px 8px; border:1px solid #d8e3f4; border-radius:12px; background:#f7f9fe; }
+    .layer strong { display:block; color:#1d3672; font-size:1.65rem; line-height:1.2; }
+    .layer span { color:var(--muted); font-size:.86rem; }
+    .arrow { color:#8292ad; font-weight:800; }
+    .pill { display:inline-block; margin:4px 5px 0 0; padding:5px 9px; border-radius:99px; background:#eaf1ff; color:#294a9f; font-size:.79rem; font-weight:700; }
+    code,pre { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+    pre { overflow:auto; margin:12px 0; padding:15px; border-radius:9px; background:#111a2c; color:#e6edfa; font-size:.9rem; }
+    .notice { padding:14px 16px; border-left:4px solid #d4962d; border-radius:7px; background:#fff8e9; color:#72521d; }
+    .notice p { color:inherit; }
+    ul { margin:10px 0 0; padding-left:20px; color:var(--muted); }
+    li { margin:6px 0; }
+    footer { padding:22px 0 36px; color:var(--muted); font-size:.9rem; }
+    @media (max-width:760px) { .wide,.side,.half { grid-column:span 12; } .hero { padding-top:52px; } .network { gap:6px; } .layer { padding:14px 4px; } }
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Research software · Fortran</div>
+    <h1>Learning potential energy surfaces with artificial neural networks</h1>
+    <p>Code associated with a simulated-annealing-based ANN approach for representing interatomic and intermolecular potential energy surfaces from structure–energy data.</p>
+    <div class="actions">
+      <a class="button" href="back-propg4.f">View Fortran source</a>
+      <a class="button alt" href="https://doi.org/10.1016/j.jics.2021.100114">Read the paper</a>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="grid">
+    <section class="card wide">
+      <h2>What this code demonstrates</h2>
+      <p>The publication explores neural-network representations for potential energy surfaces, including a model matrix eigenvalue/eigenvector problem, the OH diatomic potential-energy curve, and the water–formaldehyde dimer intermolecular PES.</p>
+      <p>The supplied example is a compact, hard-coded network: each 3×3 input matrix is flattened to nine values, mapped through four hidden units, and produces four outputs.</p>
+      <div class="network" aria-label="Neural network with nine inputs, four hidden units, and four outputs">
+        <div class="layer"><strong>9</strong><span>input values</span></div><div class="arrow" aria-hidden="true">→</div>
+        <div class="layer"><strong>4</strong><span>hidden units</span></div><div class="arrow" aria-hidden="true">→</div>
+        <div class="layer"><strong>4</strong><span>output values</span></div>
+      </div>
+      <span class="pill">Sigmoid activation</span><span class="pill">52 weights</span><span class="pill">Fixed-form Fortran</span>
+    </section>
+    <aside class="card side">
+      <h2>Paper</h2>
+      <p><strong>Exploring artificial neural networks to model interatomic and intermolecular potential energy surfaces</strong></p>
+      <p>Mayank Dixit, Joseph Daniel, and Shankar Prasad Bhattacharyya<br><em>Journal of the Indian Chemical Society</em> 98(9), 100114 (2021)</p>
+      <p><a href="https://doi.org/10.1016/j.jics.2021.100114">DOI: 10.1016/j.jics.2021.100114</a></p>
+    </aside>
+    <section class="card half">
+      <h2>Build and run</h2>
+      <p>Requires a Fortran compiler. This command is a starting point for GNU Fortran; the archival source has not been validated as a turnkey build.</p>
+      <pre><code>gfortran -std=legacy -ffixed-form \
+  -ffixed-line-length-none \
+  back-propg4.f -o backprop
+./backprop</code></pre>
+      <p>Inputs are embedded in the source. Inspect the declared output files and compiler behavior before interpreting results.</p>
+    </section>
+    <section class="card half">
+      <h2>Source and method notes</h2>
+      <p>The source perturbs one weight at a time and applies an annealing-style acceptance expression. It does not compute analytic gradients in the usual gradient-descent backpropagation workflow. Consult the paper for the method’s intended context.</p>
+      <ul>
+        <li>Pattern 4 is commented as “unknown,” but target values are provided and it is included in the training loop.</li>
+        <li>Several legacy implementation details need review before scientific reuse.</li>
+        <li>The included `ran3` routine is attributed to <em>Numerical Recipes</em>; check redistribution terms.</li>
+      </ul>
+    </section>
+    <section class="card wide">
+      <h2>Use and citation</h2>
+      <p>This repository does not currently specify an open-source license. Confirm redistribution rights for all source components before making a public release; do not assume that public availability means unrestricted reuse.</p>
+      <p>If you use the associated method, cite the article:</p>
+      <pre><code>Dixit, M.; Daniel, J.; Bhattacharyya, S. P. Exploring artificial neural
+networks to model interatomic and intermolecular potential energy surfaces.
+Journal of the Indian Chemical Society 98(9), 100114 (2021).
+https://doi.org/10.1016/j.jics.2021.100114</code></pre>
+    </section>
+    <section class="card side">
+      <h2>GitHub Pages</h2>
+      <p>This landing page is a plain static HTML file. Put it in the repository root and select the `main` branch and `/ (root)` under <strong>Settings → Pages</strong>.</p>
+      <p>GitHub will show the site URL when deployment finishes.</p>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">Research code associated with the 2021 publication. Check the source, permissions, and numerical behavior before reuse.</div></footer>
+</body>
+</html>

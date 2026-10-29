@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: >-
+  If you use this source or the associated method, please cite the published
+  article below. Verify the source version and licensing before reuse.
+title: "Exploring artificial neural networks to model interatomic and intermolecular potential energy surfaces"
+authors:
+  - family-names: Dixit
+    given-names: Mayank
+  - family-names: Daniel
+    given-names: Joseph
+  - family-names: Bhattacharyya
+    given-names: Shankar Prasad
+preferred-citation:
+  type: article
+  title: "Exploring artificial neural networks to model interatomic and intermolecular potential energy surfaces"
+  authors:
+    - family-names: Dixit
+      given-names: Mayank
+    - family-names: Daniel
+      given-names: Joseph
+    - family-names: Bhattacharyya
+      given-names: Shankar Prasad
+  journal: "Journal of the Indian Chemical Society"
+  volume: 98
+  issue: 9
+  article-number: 100114
+  year: 2021
+  doi: 10.1016/j.jics.2021.100114
